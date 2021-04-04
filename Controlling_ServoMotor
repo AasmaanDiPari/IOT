@@ -1,0 +1,17 @@
+import RPi.GPIO as GPIO
+from time import sleep
+GPIO.setmode(GPIO.BOARD)
+GPIO.setup(7,GPIO.OUT)
+servo= GPIO.PWM(7,50)
+servo.start(7.5)
+try:
+     while True:
+        servo.ChangeDutyCycle(7.5)
+        sleep(1)
+        servo.ChangeDutyCycle(12.5)
+        sleep(1)
+        servo.ChangeDutyCycle(2.5)
+        sleep(1)
+except KeyboardInterrupt:
+         servo.stop()
+         GPIO.cleanup()
