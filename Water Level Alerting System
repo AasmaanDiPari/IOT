@@ -24,7 +24,7 @@ while True:
      print(round(distance,2))
      time.sleep(1)
      if distance < 10:
-         print("Go away")
+         print("Alert!, Water Level Is Almost Full")
          GPIO.output(21,True)
          time.sleep(1)
          GPIO.output(21,False)
