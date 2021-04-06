@@ -1,0 +1,17 @@
+import RPi.GPIO as GPIO
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(17,GPIO.OUT)    // Pin Red of LED connected to gpio17
+GPIO.output(17,1)
+GPIO.setup(27,GPIO.OUT)     // Pin Green of LED connected to gpio27
+GPIO.output(27,1)
+GPIO.setup(22,GPIO.OUT)     // Pin Blue of LED connected to gpio22
+GPIO.output(22,1)
+try:
+    while True:
+         request = input("RGB-->")
+         if (len(request)==3):
+              GPIO.output(17,int(request[0]))    // Turn  ON RED light if Value of RGB input string is : 1XX
+              GPIO.output(27,int(request[1]))    // Turn ON GREEN light if value of RGB input string is : X1X
+              GPIO.output(22,int(request[2]))    // Turn ON BLUE light if value of RGB input string is : XX1
+except KeyboardInterrupt:
+      GPIO.clenup()
